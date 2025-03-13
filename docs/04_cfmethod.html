@@ -309,6 +309,17 @@ Optimal matching
 <h4 class="anchored" data-anchor-id="marginal-effects">Marginal effects</h4>
 <p>Marginal effects provide an estimate of the difference between potential outcomes under treated and control conditions and are therefore very helpful for understanding the effect of a treatment in counterfactual analysis. In DigiCAT, marginal effects are offered for binary treatments (in PSM and IPTW) using a method known as G-computation. In general this works in the following way: the outcome model has been fit, the predicted score for each case is calculated setting treatment status = treated and treatment status = control. This provides predicted outcome values for each case for each potential outcome (i.e., as if treated and as if not treated). The mean of these estimated potential outcomes across all cases is then taken for treatment status= treated and treatment status = control. The difference between these two means gives the estimated treatment effect. For PSM where we estimate the ATT, only the potential outcomes are estimated for the treated group as the ATT is all about estimating the effect of a treatment on the treated. This means that only the contrast between the potential outcomes of the treated (not control) cases is of interest. The standard errors of the treatment effect are also calculated.</p>
 </section>
+<section id="effect-sizes" class="level4">
+<h4 class="anchored" data-anchor-id="effect-sizes">Effect sizes</h4>
+<p>Null hypothesis testing can tell us whether an effect is statistically significant; however, it is often of interest to be able to say something about the size of the effect. For example, this might help determine whether an effect is big enough to be practically or clinically significant. Effect sizes help facilitate these judgements by providing a measure of effect that can be compared across different studies, regardless of the units used (e.g., whether a depression study uses a measure like the PHQ-9 or the Beck Depression Inventory) or what the treatment is (e.g., cognitive behavioural therapy or antidepressant medications).</p>
+<p>DigiCAT offers an effect size measure for binary treatments and continuous outcomes. Specifically, Hedge’s g, which takes the difference between the treated and control group and divides it by a pooled standard deviation that is weighted by the relative sample sizes of the groups.</p>
+<p>It is calculated using the formula:</p>
+<p><span class="math display">\[
+g = \frac{M_T - M_C}{\sqrt{\frac{SD_T^2 (n_T - 1) + SD_C^2 (n_C - 1)}{n_T + n_C - 2}}}
+\]</span> Where M refers to the mean, SD refers to the standard deviation and n refers to the sample size of the treatment group (T) and control group (C).</p>
+<p>In the case of marginal effects (used when treatment by matching variable interactions are included in the model), the marginal treatment effect is used as the numerator. In the case of multiple imputation, the pooled mean difference and pooled standard deviations across the imputed datasets are used in the formula. In the case of complex survey designs, the relevant terms in the formula are weighted by the relevant design or attrition weight.</p>
+<p>You can read more about Hedge’s g in <a href="https://journals.sagepub.com/doi/10.3102/10769986006002107">this paper</a>.</p>
+</section>
 </section>
 </section>
 <section id="iptw" class="level2">
