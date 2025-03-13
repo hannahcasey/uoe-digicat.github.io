@@ -19,7 +19,8 @@ website:
       - 04_cfmethod.qmd
       - 05_missing.qmd
       - 06_survey.qmd
-      - 07_further.qmd
+      - 07_sensitivity_analysis.qmd
+      - 08_further.qmd
     # right:
     #   - text: "About"
     #     menu:
