@@ -2,11 +2,11 @@
 title: "5. Missing Data"
 ---
 
-## Intro to missing data
+## Introduction to missing data
 
-It's likely that your data will be subject to non-response, and therefore contain missing values. Units (participants, patients) may be selected into your sample but refuse to take part in your survey, they may shy from answering certain questions, and there may be defective measures, deletion of outliers, or a 'missing by design' approach.   
+It’s likely that your data will be subject to non-response, and therefore contain missing values. Units (participants, patients) may be selected into your sample but refuse to take part in your survey, they may shy away from answering certain questions, and there may be defective measures, deletion of outliers, or a ‘missing by design’ approach. The impact of missingness depends on a combination of the specific way in which the data are missing (in particular: is it randomly missing, predictable from the data at hand, or not predictable from the data available) and how it is dealt with.  
 
-However, to handle missingness assumptions must be made regarding the process or cause of nonresponse, in addition to model assumptions. The simplest solution is of course to limit the occurrence of missingness. However, where this is not possible, there are some options which DigiCAT employs to help you navigate this situation to facilitate your counterfactual analysis.
+To  handle missingness assumptions must be made regarding the process or cause of nonresponse, in addition to model assumptions. The simplest solution is of course to limit the occurrence of missingness. However, where this is not possible, there are some options which DigiCAT employs to help you navigate this situation to facilitate your counterfactual analysis.
 
 ## Unit/item non-response
 

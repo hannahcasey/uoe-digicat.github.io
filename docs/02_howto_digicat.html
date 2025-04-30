@@ -255,8 +255,8 @@ if(f.classList.contains('fa-hand-o-right')) {
 
 <section id="why-develop-digicat" class="level2">
 <h2 class="anchored" data-anchor-id="why-develop-digicat">Why develop DigiCAT?</h2>
-<p>Counterfactual analysis provides a set of tools that can help us understand what the active ingredients are in mental health. While the gold standard for doing so would be something like a randomised controlled trial (RCT), RCTs are not always possible and when they are, they are expensive and challenging to do well. Their highly controlled nature also means that they may lack ecological validity so that results from RCTs might not apply very well in the real world.</p>
-<p>As such there is a lot of value in being able to get an idea of what might impact mental health from observational data (I.e., non-experimental data). In fact, there is a wealth of pre-existing mental health data ready to be used in this way. Some examples of such datasets can be found in, for example, this catalogue of mental health datasets: <a href="https://www.cataloguementalhealth.ac.uk/" target="_blank">https://www.cataloguementalhealth.ac.uk/</a></p>
+<p>Counterfactual analysis provides a set of tools that can help us understand what the active ingredients are in outcomes such as mental health. This helps us to identify which factors might represent fruitful intervention targets. While the gold standard for doing so would be something like a randomised controlled trial (RCT), RCTs are not always possible and when they are, they are expensive and challenging to do well. Their highly controlled nature also means that they may lack ecological validity so that results from RCTs might not apply very well in the real world.</p>
+<p>As such there is a lot of value in being able to get an idea of what might impact mental health from observational data (i.e., non-experimental data). In fact, there is a wealth of pre-existing mental health data ready to be used in this way. Some examples of such datasets can be found in, for example, this catalogue of mental health datasets: <a href="https://www.cataloguementalhealth.ac.uk/" target="_blank">https://www.cataloguementalhealth.ac.uk/</a></p>
 <p>However, we noticed that counterfactual analysis is not as widely used in mental health research as one might expect. There may be a number of reasons for this but we think a major one is that counterfactual analysis might not be very accessible for mental health researchers. It would not typically be part of training and it can be technically quite complex, which may limit researcher’s ability to use it. There’s also a lack of accessible tools for counterfactual analysis. Most tools require coding skills and while some web applications exist they don’t do everything. In particular, their functionality tends to be narrowly focused on a particular type of analysis and they tend not be able to deal with the ‘real world’ features of data like the presence of missingness or complex survey data or non-binary treatments. These are things we wanted to address with DigiCAT.</p>
 <p>Another reason we made DigiCAT is we noticed that it took rather a long time to code counterfactual analyses using existing packages and things got complicated when we had to consider things like missingness, clustering, large numbers of confounders etc. By pulling together all the code from common ‘journeys’ and creating an easy ‘point and click’ interface we also aim to speed up the implementation of counterfactual analysis even for expert users adept in the technique in existing softwares like R.</p>
 </section>
@@ -266,7 +266,7 @@ if(f.classList.contains('fa-hand-o-right')) {
 </section>
 <section id="how-to-get-digicat" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-get-digicat">How to get DigiCAT</h2>
-<p>There are two ways to use DigiCAT. The first is to download it and use it on your local computer. This is recommended if you need to avoid uploading your data to a server or if you have a very large dataset or very computationally intensive analyses. The second way to use it is via the web application. The two versions are mostly very similar but the web application has a few more limits. These limits are to help ensure data security and to limit very computationally demanding analyses (that would take a long time to run). These types of analyses are better to do with the package version.</p>
+<p>There are three ways to use DigiCAT. The first two ways involve downloading DigiCAT and using it on your local computer, either as an R package or a docker container. This is recommended if you need to avoid uploading your data to a server or if you have a very large dataset or very computationally intensive analyses. The third way to use it is via the web application. The three versions are mostly very similar but the web application has a few more limits. These limits are to help ensure data security and to limit very computationally demanding analyses (that would take a long time to run). These types of analyses are better to do with the R package or docker version.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -291,6 +291,19 @@ R Package
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
+Docker Container
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>DigiCAT is also available as a container, meaning all required software is combined into a monolithic application. This means DigiCAT can be easily installed on new systems and is robust to updates in dependencies. Installation instructions are available on the DigiCAT GitHub page.(https://github.com/uoe-digicat/DigiCAT?tab=readme-ov-file#container-platform)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
 Web Version
 </div>
 </div>
@@ -301,13 +314,13 @@ Web Version
 </section>
 <section id="how-to-use-digicat" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-use-digicat">How to use DigiCAT</h2>
-<p>Both the downloadable and package version of DigiCAT guide you through a journey which begins with data upload (or loading of example datasets) then proceeds through the selection of a counterfactual analysis approach, a balancing stage, and an outcome model stage. Each of these is explained in turn below and more details of the specific methods offered are provided in later sections.</p>
+<p>Both the downloadable and web versions of DigiCAT guide you through a journey which begins with data upload (or loading of example datasets) then proceeds through the selection of a counterfactual analysis approach, a balancing stage, and an outcome model stage. Each of these is explained in turn below and more details of the specific methods offered are provided in later sections.</p>
 <section id="data-upload" class="level4">
 <h4 class="anchored" data-anchor-id="data-upload">Data upload</h4>
-<p>The downloadable version of DigiCAT allows users to upload data. This data should be in .csv format and include variable headers. All the data should be in ‘numeric’ form meaning that only numbers can be used to represent variable values. This means that variable labels should be recoded as numbers, e.g., ‘yes = 1; no=0’. Missing values should be coded as ‘NA’ which is the convention that R, the tool that powers DigiCAT uses to represent missing values.</p>
+<p>The downloadable versions of DigiCAT allows users to upload data. This data should be in .csv format and include variable headers. All the data should be in ‘numeric’ form meaning that only numbers can be used to represent variable values. This means that variable labels should be recoded as numbers, e.g., ‘yes = 1; no=0’. Missing values should be coded as ‘NA’ which is the convention that R, the tool that powers DigiCAT uses to represent missing values.</p>
 <p>One a file has been selected for upload you are then able to flag any categorical variables. This is to ensure that they are properly treated as categorical. You also select your outcome variable (e.g., ‘anxiety’, your treatment variable (e.g., ‘social media use’) and your matching variables (e.g., ‘gender, socioeconomic status’ etc.). You can also select any additional covariates that you want to include in your outcome model but that you don’t want to use as matching variables. These might be selected if you want to estimate a treatment effect over and above the effects of other influences on mental health (e.g., the effect of social media use after adjusting for the effects of physical activity).</p>
 <p>Finally, DigiCAT has been built to handle complex survey data which is commonly seem in large-scale mental health studies. For datasets like this you can select a survey weight or non-response weight variable. If only a survey weight variable is available you can select ‘select if data includes survey weight’. If a non-response or attrition weight is available then you can additionally select ‘select if survey weights above compensate for non-response’. Complex survey datasets also commonly include clustering and stratification variables which can also be selected at the data upload stage.,</p>
-<p>Once the various variables have been selected only these will be carried forward for analysis. After uploading the data and selecting your variables you can then click ‘validate data’ and DigiCAT will perform some checks to make sure the data are all in the right format no issues with the analysis are anticipated.</p>
+<p>Once the various variables have been selected only these will be carried forward for analysis. After uploading the data and selecting your variables you can then click ‘validate data’ and DigiCAT will perform some checks to make sure the data are all in the right format no issues with the analysis are anticipated. Warnings will appear if any issues are detected with the data (e.g., high levels of multicollinearity).</p>
 </section>
 <section id="approach" class="level4">
 <h4 class="anchored" data-anchor-id="approach">Approach</h4>
@@ -324,29 +337,29 @@ Web Version
 </section>
 <section id="example-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="example-dataset">Example Dataset</h2>
-<p>DigiCAT includes an example synthetic dataset which is based on the example here: <a href="TODO LINK">TODO LINK</a> which examined the effects of reading engagement on mental health. This can be used to help get to grips with counterfactual analysis, for teaching, or just to explore the features of DigiCAT. It includes a set of pre-selected matching, treatment and outcome variables. The treatment variable is reading engagement at age 15 and is offered as both a binary (‘Reading_age15’) and ordinal variable (‘ReadingO_age15) to allow different types of analyses to be explored. The outcome variable (’Anxiety_age17’) is a continuous measure of anxiety at age 17. The matching variables are a set of pre-treatment variables (measured at age 13 or before) that could confound the treatment-outcome association and should, therefore, be matched on. All categorical variables are pre-selected as such. The dataset also includes some missing data to allow exploration of the different missing data options. In the future we also plan to include datasets with complex survey features and other relevant features to allow all tool features to be explored with the example dataset as they are added.</p>
+<p>DigiCAT includes an example synthetic dataset which is based on the example here: <a href="https://europepmc.org/article/PPR/PPR624720">Is reading for pleasure in adolescence good for mental health? A counterfactual and within-person analysis in a large longitudinal study - Abstract - Europe PMC</a> which examined the effects of reading engagement on mental health. This can be used to help get to grips with counterfactual analysis, for teaching, or just to explore the features of DigiCAT. It includes a set of pre-selected matching, treatment and outcome variables. The treatment variable is reading engagement at age 15 and is offered as both a binary (‘Reading_age15’) and ordinal variable (‘ReadingO_age15) to allow different types of analyses to be explored. The outcome variable (’Anxiety_age17’) is a continuous measure of anxiety at age 17. The matching variables are a set of pre-treatment variables (measured at age 13 or before) that could confound the treatment-outcome association and should, therefore, be matched on. All categorical variables are pre-selected as such. The dataset also includes some missing data to allow exploration of the different missing data options.</p>
 <p>You can use the example dataset by selecting ‘Load example data’ in the Upload data page of DigiCAT. The ‘Data’ tab on the right-hand panel will then show you the data values, allowing you to inspect the dataset and get a feel for it. The data dictionary can be seen in Table 1 below. As per data upload requirements the file is in .csv format and codes missing values as ‘NA’.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-dict" class="anchored">
 
-<div id="dziutauoih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dziutauoih table {
+<div id="uohtplapkd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uohtplapkd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dziutauoih thead, #dziutauoih tbody, #dziutauoih tfoot, #dziutauoih tr, #dziutauoih td, #dziutauoih th {
+#uohtplapkd thead, #uohtplapkd tbody, #uohtplapkd tfoot, #uohtplapkd tr, #uohtplapkd td, #uohtplapkd th {
   border-style: none;
 }
 
-#dziutauoih p {
+#uohtplapkd p {
   margin: 0;
   padding: 0;
 }
 
-#dziutauoih .gt_table {
+#uohtplapkd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -372,12 +385,12 @@ Web Version
   border-left-color: #D3D3D3;
 }
 
-#dziutauoih .gt_caption {
+#uohtplapkd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dziutauoih .gt_title {
+#uohtplapkd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -389,7 +402,7 @@ Web Version
   border-bottom-width: 0;
 }
 
-#dziutauoih .gt_subtitle {
+#uohtplapkd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -401,7 +414,7 @@ Web Version
   border-top-width: 0;
 }
 
-#dziutauoih .gt_heading {
+#uohtplapkd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -413,13 +426,13 @@ Web Version
   border-right-color: #D3D3D3;
 }
 
-#dziutauoih .gt_bottom_border {
+#uohtplapkd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dziutauoih .gt_col_headings {
+#uohtplapkd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -434,7 +447,7 @@ Web Version
   border-right-color: #D3D3D3;
 }
 
-#dziutauoih .gt_col_heading {
+#uohtplapkd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -454,7 +467,7 @@ Web Version
   overflow-x: hidden;
 }
 
-#dziutauoih .gt_column_spanner_outer {
+#uohtplapkd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -466,15 +479,15 @@ Web Version
   padding-right: 4px;
 }
 
-#dziutauoih .gt_column_spanner_outer:first-child {
+#uohtplapkd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dziutauoih .gt_column_spanner_outer:last-child {
+#uohtplapkd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dziutauoih .gt_column_spanner {
+#uohtplapkd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -486,11 +499,11 @@ Web Version
   width: 100%;
 }
 
-#dziutauoih .gt_spanner_row {
+#uohtplapkd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dziutauoih .gt_group_heading {
+#uohtplapkd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -516,7 +529,7 @@ Web Version
   text-align: left;
 }
 
-#dziutauoih .gt_empty_group_heading {
+#uohtplapkd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -531,15 +544,15 @@ Web Version
   vertical-align: middle;
 }
 
-#dziutauoih .gt_from_md > :first-child {
+#uohtplapkd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dziutauoih .gt_from_md > :last-child {
+#uohtplapkd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dziutauoih .gt_row {
+#uohtplapkd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -558,7 +571,7 @@ Web Version
   overflow-x: hidden;
 }
 
-#dziutauoih .gt_stub {
+#uohtplapkd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -571,7 +584,7 @@ Web Version
   padding-right: 5px;
 }
 
-#dziutauoih .gt_stub_row_group {
+#uohtplapkd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -585,15 +598,15 @@ Web Version
   vertical-align: top;
 }
 
-#dziutauoih .gt_row_group_first td {
+#uohtplapkd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dziutauoih .gt_row_group_first th {
+#uohtplapkd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dziutauoih .gt_summary_row {
+#uohtplapkd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -603,16 +616,16 @@ Web Version
   padding-right: 5px;
 }
 
-#dziutauoih .gt_first_summary_row {
+#uohtplapkd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dziutauoih .gt_first_summary_row.thick {
+#uohtplapkd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dziutauoih .gt_last_summary_row {
+#uohtplapkd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -622,7 +635,7 @@ Web Version
   border-bottom-color: #D3D3D3;
 }
 
-#dziutauoih .gt_grand_summary_row {
+#uohtplapkd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -632,7 +645,7 @@ Web Version
   padding-right: 5px;
 }
 
-#dziutauoih .gt_first_grand_summary_row {
+#uohtplapkd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -642,7 +655,7 @@ Web Version
   border-top-color: #D3D3D3;
 }
 
-#dziutauoih .gt_last_grand_summary_row_top {
+#uohtplapkd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -652,11 +665,11 @@ Web Version
   border-bottom-color: #D3D3D3;
 }
 
-#dziutauoih .gt_striped {
+#uohtplapkd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dziutauoih .gt_table_body {
+#uohtplapkd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -665,7 +678,7 @@ Web Version
   border-bottom-color: #D3D3D3;
 }
 
-#dziutauoih .gt_footnotes {
+#uohtplapkd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -679,7 +692,7 @@ Web Version
   border-right-color: #D3D3D3;
 }
 
-#dziutauoih .gt_footnote {
+#uohtplapkd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -688,7 +701,7 @@ Web Version
   padding-right: 5px;
 }
 
-#dziutauoih .gt_sourcenotes {
+#uohtplapkd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -702,7 +715,7 @@ Web Version
   border-right-color: #D3D3D3;
 }
 
-#dziutauoih .gt_sourcenote {
+#uohtplapkd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -710,72 +723,72 @@ Web Version
   padding-right: 5px;
 }
 
-#dziutauoih .gt_left {
+#uohtplapkd .gt_left {
   text-align: left;
 }
 
-#dziutauoih .gt_center {
+#uohtplapkd .gt_center {
   text-align: center;
 }
 
-#dziutauoih .gt_right {
+#uohtplapkd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dziutauoih .gt_font_normal {
+#uohtplapkd .gt_font_normal {
   font-weight: normal;
 }
 
-#dziutauoih .gt_font_bold {
+#uohtplapkd .gt_font_bold {
   font-weight: bold;
 }
 
-#dziutauoih .gt_font_italic {
+#uohtplapkd .gt_font_italic {
   font-style: italic;
 }
 
-#dziutauoih .gt_super {
+#uohtplapkd .gt_super {
   font-size: 65%;
 }
 
-#dziutauoih .gt_footnote_marks {
+#uohtplapkd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dziutauoih .gt_asterisk {
+#uohtplapkd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dziutauoih .gt_indent_1 {
+#uohtplapkd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dziutauoih .gt_indent_2 {
+#uohtplapkd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dziutauoih .gt_indent_3 {
+#uohtplapkd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dziutauoih .gt_indent_4 {
+#uohtplapkd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dziutauoih .gt_indent_5 {
+#uohtplapkd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dziutauoih .katex-display {
+#uohtplapkd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dziutauoih div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#uohtplapkd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

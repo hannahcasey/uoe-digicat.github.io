@@ -6,17 +6,15 @@ title: "Acknowledgements & Further reading"
 
 The following features are currently in development or planned for incorporation soon: 
 
-- Machine learning propensity score estimation methods (generalised boosting models and random forest) 
-- Counterfactual analysis for continuous and nominal treatments 
-- Counterfactual analysis for binary outcomes 
-- Marginal effects workflow for ordinal treatment variables 
-- More options for multiple imputation 
-- More options for IPTW (including ATT estimation and weight stabilisation) 
+- Counterfactual analysis for nominal treatments. 
+- Marginal effects workflow for ordinal treatment variables. 
+- Additional options for multiple imputation. 
+- Expanded options for IPTW (including ATT estimation and weight stabilisation). 
 
 
 ## Acknowledgements  
 
-We are grateful to the Wellcome Trust for funding the Discovery and Prototyping phases of the development of DigiCAT. Our thanks also go to the many who contributed to DigiCAT in various ways. We are grateful to the young person advisory groups (YPAGs) who provided invaluable insights and help guide the direction of DigiCAT, to the users who responded to our user survey and to the group members who provided feedback on iterations of the tool.  
+We are grateful to the Wellcome Trust for funding the Discovery, Prototyping, and Scaling and Sustainability  phases of the development of DigiCAT. Our thanks also go to the many others who contributed to DigiCAT in various ways. We are grateful to the young person advisory groups (YPAGs) who provided invaluable insights and help guide the direction of DigiCAT, to the users who responded to our user survey and/or tested and provided feedback on the tool.
 
 ## Further Reading
 
